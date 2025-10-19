@@ -11,10 +11,10 @@ docker run -d --name <nombre contenedor> --mount type=bind,source=<ruta carpeta 
 - destination, dst, target: La ruta donde se monta el archivo o directorio en el contenedor.
 - source, src: El origen del montaje.
   
-# En tu computador crear una carpeta llamada nginx y dentro de esta carpeta crea otra llamada html. Como se aprecia en la figura.
+#### En tu computador crear una carpeta llamada nginx y dentro de esta carpeta crea otra llamada html. Como se aprecia en la figura.
 ![Volúmenes](directorio.PNG)
 
-# Crear un contenedor con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
+#### Crear un contenedor con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
 ![Volúmenes](volumen-host.PNG)
 ```
 docker run -d -p 80:80 --name srv-web -v /home/aesir/Documents/nginx/html:/usr/share/nginx/html nginx:alpine
