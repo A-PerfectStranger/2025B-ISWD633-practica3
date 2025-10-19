@@ -14,7 +14,16 @@ Ruta carpeta host: .../ejercicio3/db
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
 
 ### Crear un contenedor con la imagen mysql:8  en la red net-wp, configurar las variables de entorno: MYSQL_ROOT_PASSWORD, MYSQL_DATABASE, MYSQL_USER y MYSQL_PASSWORD
-# COMPLETAR CON EL COMANDO
+docker run -d \
+  --name contenedor_mysql \
+  --network net-wp \
+  -v ~/ejercicio3/db:/var/lib/mysql \
+  -e MYSQL_DATABASE=wordpress \
+  -e MYSQL_USER=wp_user \
+  -e MYSQL_PASSWORD=wp_pass \
+  -e MYSQL_ROOT_PASSWORD=rootpass \
+  mysql:8.0
+
 
 ### ¿Qué observa en la carpeta db que se encontraba inicialmente vacía?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
