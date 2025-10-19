@@ -19,7 +19,7 @@ docker rm -fv server-nginx
 ```
 _esta instrucción elimina el volumen si éste es de tipo anónimo_
 
-# Eliminar todos los volúmenes anónimos (dangling volumes) no utilizados
+### Eliminar todos los volúmenes anónimos (dangling volumes) no utilizados
 Los dangling volumes son volúmenes en Docker que no están asociados a ningún contenedor en ejecución. Estos volúmenes se crean cuando se monta un volumen en un contenedor y luego se elimina ese contenedor sin eliminar explícitamente el volumen.
 ```
 docker volume prune
