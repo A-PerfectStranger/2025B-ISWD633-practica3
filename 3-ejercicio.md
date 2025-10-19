@@ -52,5 +52,5 @@ docker run -d \
 
 ### Eliminar el contenedor y crearlo nuevamente, ¿qué ha sucedido?
 
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA 
+Se mantiene las configuraciones hechas gracias a la persistencia en el host.
 
