@@ -78,12 +78,40 @@ docker run -d --name server-drupal --publish published=9700,target=80 -v vol-dru
 ```
 
 ### Ingrese al server-drupal y siga el paso a paso para la instalación.
-Salta del paso 3 configuracion al 5 instalacion.
+Salta del paso 3 configuracion al 5 instalación.
 ![Imagen](captura4.png)
 
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
-# COMPLETAR CON EL DIAGRAMA SOLICITADO
+                    ┌──────────────────────────────┐
+                    │        Docker Network        │
+                    │         net-drupal           │
+                    └──────────────────────────────┘
+                              │        │
+             ┌────────────────┘        └────────────────┐
+             │                                          │
+ ┌──────────────────────┐                   ┌───────────────────────────┐
+ │   server-postgres    │                   │    client-postgres        │
+ │   Imagen: postgres   │                   │ Imagen: dpage/pgadmin4    │
+ │   Vol: vol-postgres  │                   │ Puerto: 9500 → 80         │
+ │   Datos en /var/lib/ │                   │ Conecta a server-postgres │
+ │   postgresql/data    │                   │                           │
+ └──────────────────────┘                   └───────────────────────────┘
+             │
+             │
+             ▼
+ ┌──────────────────────────────┐
+ │        server-drupal         │
+ │        Imagen: drupal        │
+ │ Puerto: 9700 → 80            │
+ │ Volúmenes:                   │
+ │  • vol-drupal-modules        │
+ │  • vol-drupal-profiles       │
+ │  • vol-drupal-sites          │
+ │  • vol-drupal-themes         │
+ │ Conectado a server-postgres  │
+ └──────────────────────────────┘
+
 
 ### Eliminar un volumen específico
 ```
